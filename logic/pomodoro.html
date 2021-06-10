@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="show">0 - 25</h1>
+  <button id="pause">Pause</button>
+  <button id="resume" disabled>Resume</button>
+  <script>
+    const show = document.getElementById('show'),
+          pause_btn = document.getElementById('pause'),
+          resume_btn = document.getElementById('resume')
+
+    let generalDuration = 25,
+        duration = 25,
+        startedAt = 1,
+        paused = false,
+        now = 1
+
+    let timer = setInterval(() => {
+      if (!paused) {
+        now += 1
+        show.innerHTML = `${now - startedAt} - ${generalDuration}`
+      }
+    }, 1000)
+
+    // Finish=startedAt + duration
+    pause_btn.onclick = () => {
+      paused = true
+      resume_btn.disabled = false
+      pause_btn.disabled = true
+    }
+
+    resume_btn.onclick = () => {
+      paused = false
+      resume_btn.disabled = true
+      pause_btn.disabled = false
+    }
+  </script>
+</body>
+</html>
