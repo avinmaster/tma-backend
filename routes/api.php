@@ -9,7 +9,6 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
-use App\Http\Controllers\Logic\TimerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,27 +27,28 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('user', [UserController::class, 'current']);
 
-    Route::get('time', function () {
-        return 100;
+    Route::group(['prefix' => 'settings'], function () {
+        Route::patch('/profile', [ProfileController::class, 'update']);
+        Route::patch('/password', [PasswordController::class, 'update']);
     });
-
-    Route::get('timers', [TimerController::class, 'all']);
-    Route::post('timers', [TimerController::class, 'new']);
-
-    Route::patch('settings/profile', [ProfileController::class, 'update']);
-    Route::patch('settings/password', [PasswordController::class, 'update']);
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
     Route::post('login', [LoginController::class, 'login']);
     Route::post('register', [RegisterController::class, 'register']);
 
-    Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);
-    Route::post('password/reset', [ResetPasswordController::class, 'reset']);
+    Route::group(['prefix' => 'password'], function () {
+        Route::post('/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+        Route::post('/reset', [ResetPasswordController::class, 'reset']);
+    });
 
-    Route::post('email/verify/{user}', [VerificationController::class, 'verify'])->name('verification.verify');
-    Route::post('email/resend', [VerificationController::class, 'resend']);
+    Route::group(['prefix' => 'email'], function () {
+        Route::post('/verify/{user}', [VerificationController::class, 'verify'])->name('verification.verify');
+        Route::post('/resend', [VerificationController::class, 'resend']);
+    });
 
-    Route::post('oauth/{driver}', [OAuthController::class, 'redirect']);
-    Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
+    Route::group(['prefix' => 'oauth'], function () {
+        Route::post('/{driver}', [OAuthController::class, 'redirect']);
+        Route::get('/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
+    });
 });
