@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LaravelQuerySettings">
+    <option name="filterDataSources" value="true" />
+    <option name="filteredDataSources">
+      <set>
+        <option value="5f5a141e-bb62-4523-b674-31f015855af5&lt;-/lq/-&gt;tma_db" />
+        <option value="5f5a141e-bb62-4523-b674-31f015855af5&lt;-/lq/-&gt;public" />
+        <option value="5f5a141e-bb62-4523-b674-31f015855af5&lt;-/lq/-&gt;performance_schema" />
+        <option value="5f5a141e-bb62-4523-b674-31f015855af5&lt;-/lq/-&gt;mysql" />
+        <option value="5f5a141e-bb62-4523-b674-31f015855af5&lt;-/lq/-&gt;information_schema" />
+      </set>
+    </option>
+  </component>
+</project>
