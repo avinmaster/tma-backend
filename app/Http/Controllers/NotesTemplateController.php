@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subtasks;
+use App\Models\NotesTemplate;
 use Illuminate\Http\Request;
 
-class SubtasksController extends Controller
+class NotesTemplateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class SubtasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subtasks  $subtasks
+     * @param  \App\Models\NotesTemplate  $notesTemplate
      * @return \Illuminate\Http\Response
      */
-    public function show(Subtasks $subtasks)
+    public function show(NotesTemplate $notesTemplate)
     {
         //
     }
@@ -43,10 +43,10 @@ class SubtasksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subtasks  $subtasks
+     * @param  \App\Models\NotesTemplate  $notesTemplate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subtasks $subtasks)
+    public function update(Request $request, NotesTemplate $notesTemplate)
     {
         //
     }
@@ -54,10 +54,10 @@ class SubtasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subtasks  $subtasks
+     * @param  \App\Models\NotesTemplate  $notesTemplate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subtasks $subtasks)
+    public function destroy(NotesTemplate $notesTemplate)
     {
         //
     }

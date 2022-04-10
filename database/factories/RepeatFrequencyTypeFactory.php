@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Subtasks;
+use App\Models\RepeatFrequencyType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubtasksFactory extends Factory
+class RepeatFrequencyTypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Subtasks::class;
+    protected $model = RepeatFrequencyType::class;
 
     /**
      * Define the model's default state.

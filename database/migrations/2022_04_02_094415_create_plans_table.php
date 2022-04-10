@@ -15,7 +15,18 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
+
+            $table->foreignUuid('user_id')
+                ->constrained()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('repeat_frequency_type_id')
+                ->references('id')
+                ->on('repeat_frequency_types')
+                ->cascadeOnUpdate();
         });
     }
 
